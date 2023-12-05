@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('dishes', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id')->after('id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->string('name');
             $table->text('description');
             $table->text('ingredients');
