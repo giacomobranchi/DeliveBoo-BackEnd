@@ -5,22 +5,22 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use App\Models\User;
-use App\Models\Order;
+use App\Models\Dish;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Dish extends Model
+class Order extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'name',
-        'description',
-        'ingredients',
-        'price',
-        'available',
-        'slug',
-        'img'
+        'total_price',
+        'success',
+        'ui_mail',
+        'ui_address',
+        'ui_name',
+        'ui_phone'
     ];
 
 
@@ -29,8 +29,8 @@ class Dish extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function orders(): BelongsToMany
+    public function dishes(): BelongsToMany
     {
-        return $this->belongsToMany(Order::class);
+        return $this->belongsToMany(Dish::class);
     }
 }

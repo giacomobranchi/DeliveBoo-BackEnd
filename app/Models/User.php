@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use App\Models\Dish;
 
 class User extends Authenticatable
 {
@@ -47,13 +48,14 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    /**
-     * Get all of the comments for the User
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
+
     public function dish(): HasMany
     {
         return $this->hasMany(Dish::class);
+    }
+
+    public function order(): HasMany
+    {
+        return $this->hasMany(Order::class);
     }
 }

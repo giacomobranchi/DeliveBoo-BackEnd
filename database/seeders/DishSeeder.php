@@ -31,6 +31,7 @@ class DishSeeder extends Seeder
         ];
         for ($i = 0; $i < 10; $i++) {
             $dish = new Dish();
+            $dish->user_id = '1';
             $dish->name = Str::random(10);
             $dish->description = Str::random(30);
             $dish->ingredients = implode(', ', $ingredients);
