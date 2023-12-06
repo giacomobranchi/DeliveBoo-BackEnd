@@ -11,9 +11,9 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Fontawesome 6 cdn -->
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css'
-        integrity='sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=='
-        crossorigin='anonymous' referrerpolicy='no-referrer' />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -65,7 +65,7 @@
                                     </li> --}}
                                     <li>
                                         <a class="dropdown-item" href="{{ route('logout') }}"
-                                               onclick="event.preventDefault();
+                                            onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">
                                             {{ __('Logout') }}
                                         </a>
@@ -121,12 +121,12 @@
                             </li>
 
                             {{-- BTN SOFT BIN --}}
-                            <li>
+                            {{-- <li>
                                 <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.dishes.recycle' ? 'bg-secondary' : '' }}"
                                     href="{{ route('admin.dishes.recycle') }}">
                                     <i class="fa-solid fa-trash-arrow-up"></i> {{ __('Soft Bin') }}
                                 </a>
-                            </li>
+                            </li> --}}
 
 
                         </ul>

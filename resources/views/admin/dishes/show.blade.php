@@ -53,18 +53,18 @@
 
 
                         {{-- MODALE PER ELIMINARE ELEMENTO --}}
-                        <div class="modal fade" id="modalId-{{ $project->id }}" data-backdrop="static"
-                            data-keyboard="false" tabindex="-1" aria-labelledby="modalId-{{ $project->id }}"
+                        <div class="modal fade" id="modalId-{{ $dish->id }}" data-backdrop="static"
+                            data-keyboard="false" tabindex="-1" aria-labelledby="modalId-{{ $dish->id }}"
                             aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header bg-danger text-white justify-content-center">
-                                        <h5 class="modal-title text-uppercase" id="modalTitleId-{{ $project->id }}">
+                                        <h5 class="modal-title text-uppercase" id="modalTitleId-{{ $dish->id }}">
                                             Attenzione!</h5>
                                     </div>
                                     <div class="modal-body fs-5">
-                                        Il progetto <strong>{{ $project->id }}</strong> -
-                                        <strong>{{ $project->title }}</strong> sta per essere eliminato!
+                                        Il progetto <strong>{{ $dish->id }}</strong> -
+                                        <strong>{{ $dish->title }}</strong> sta per essere eliminato!
                                     </div>
                                     <div class="modal-footer justify-content-between">
                                         <button type="button" class="btn btn-primary" data-bs-toggle="modal">
