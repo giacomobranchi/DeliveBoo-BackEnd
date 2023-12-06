@@ -27,11 +27,11 @@
     <div id="app">
 
         <header>
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top bg-dark flex-md-nowrap p-2 shadow">
+            <nav class="navbar navbar-expand-lg navbar-dark text-dark sticky-top flex-md-nowrap p-2 shadow">
 
                 <div class="container-fluid">
 
-                    <div class="flex-grow-0 col-md-3 col-lg-2 me-0 text-light">
+                    <div class="flex-grow-0 col-md-3 col-lg-2 me-0">
                         <h4>DeliveBoo</h4>
                         <h5>Admin - <strong>{{ Auth::user()->name }}</strong></h5>
                     </div>
@@ -51,7 +51,7 @@
                         <ul class="navbar-nav">
 
                             <li class="nav-item dropdown dropstart">
-                                <button class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"
+                                <button class="btn btn-outline-dark dropdown-toggle" data-bs-toggle="dropdown"
                                     aria-expanded="false">
                                     {{ Auth::user()->name }}
                                 </button>
@@ -94,13 +94,15 @@
         -->
                 <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-dark navbar-dark sidebar collapse">
                     <div class="position-sticky pt-3">
-                        <ul class="nav flex-column fs-4">
+                        <ul class="nav flex-column fs-5">
 
                             {{-- BTN DASHBOARD PER EVENTUALI STATISTICHE --}}
                             <li class="nav-item ">
                                 <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.dashboard' ? 'bg-secondary' : '' }}"
                                     href="{{ route('admin.dashboard') }}">
-                                    <i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i> {{ __('Dashboard') }}
+                                    <img class="me-2"
+                                        src="{{ asset('assets/utility_image/wired-lineal-1927-food-truck.svg') }}"
+                                        alt=""> {{ __('Dashboard') }}
                                 </a>
                             </li>
 
@@ -108,7 +110,10 @@
                             <li>
                                 <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.dishes.index' ? 'bg-secondary' : '' }}"
                                     href="{{ route('admin.dishes.index') }}">
-                                    <i class="fa-solid fa-diagram-project fa-lg fa-fw"></i> {{ __('Dishes') }}
+                                    <img class="me-2" src="{{ asset('assets/utility_image/pizza-svgrepo-com.svg') }}"
+                                        alt="">
+
+                                    {{ __('Dishes') }}
                                 </a>
                             </li>
 
@@ -116,7 +121,7 @@
                             <li>
                                 <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.dishes.create' ? 'bg-secondary' : '' }}"
                                     href="{{ route('admin.dishes.create') }}">
-                                    <i class="fa-solid fa-diagram-project fa-lg fa-fw"></i> {{ __('Create Dishes') }}
+                                    <i class="fa-solid fa-utensils fa-lg fa-fw me-2"></i> {{ __('Create Dishes') }}
                                 </a>
                             </li>
 
