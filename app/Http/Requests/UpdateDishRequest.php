@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class UpdateDishRequest extends FormRequest
 {
@@ -11,7 +12,8 @@ class UpdateDishRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return Auth::id();
+        //return $this->post?->user_id === Auth::id();
     }
 
     /**
@@ -22,7 +24,13 @@ class UpdateDishRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'user_id' => ['exists:users,id'],
+            'name' => ['required', 'min: 5', 'max:255'],
+            'description' => ['required', 'min:10'],
+            'ingredients' => ['required'],
+            'price' => ['required', 'decimal:2'],
+            'available' => ['required', 'boolean'],
+            'img' => ['nullable', 'file', 'mimes:png,jpg,avif', 'max:20000']
         ];
     }
 }

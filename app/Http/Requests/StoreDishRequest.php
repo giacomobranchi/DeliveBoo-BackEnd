@@ -3,15 +3,19 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class StoreDishRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
+
+
     public function authorize(): bool
     {
-        return false;
+        return Auth::id();
     }
 
     /**
@@ -22,7 +26,13 @@ class StoreDishRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'user_id' => ['exists:users,id'],
+            'name' => ['required', 'min: 5', 'max:255'],
+            'description' => ['required', 'min:10'],
+            'ingredients' => ['required'],
+            'price' => ['required', 'decimal:2'],
+            'available' => ['required', 'boolean'],
+            'img' => ['nullable', 'file', 'mimes:png,jpg,avif', 'max:20000']
         ];
     }
 }
