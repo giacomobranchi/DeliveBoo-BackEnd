@@ -79,9 +79,9 @@
                     {{-- DISH AVAILABLE --}}
                     <div class="mb-3">
                         <label for="available" class="form-label">Is Available?</label>
-                        <input type="radio" name="available" value="0" checked>
+                        <input type="radio" name="available" value="1" checked>
                         Available
-                        <input type="radio" name="available" value="1">
+                        <input type="radio" name="available" value="0">
                         Not Available
                     </div>
 

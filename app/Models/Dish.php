@@ -20,7 +20,8 @@ class Dish extends Model
         'price',
         'available',
         'slug',
-        'img'
+        'img',
+        'user_id',
     ];
 
 
