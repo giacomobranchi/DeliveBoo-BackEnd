@@ -95,22 +95,33 @@
                 <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-dark navbar-dark sidebar collapse">
                     <div class="position-sticky pt-3">
                         <ul class="nav flex-column fs-4">
-                            <li class="nav-item ">
 
+                            {{-- BTN DASHBOARD PER EVENTUALI STATISTICHE --}}
+                            <li class="nav-item ">
                                 <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.dashboard' ? 'bg-secondary' : '' }}"
                                     href="{{ route('admin.dashboard') }}">
                                     <i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i> {{ __('Dashboard') }}
                                 </a>
                             </li>
-                            <li>
 
+                            {{-- BTN INDEX PER VISUALILZZARE I PIATTI --}}
+                            <li>
                                 <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.dishes.index' ? 'bg-secondary' : '' }}"
                                     href="{{ route('admin.dishes.index') }}">
                                     <i class="fa-solid fa-diagram-project fa-lg fa-fw"></i> {{ __('Dishes') }}
                                 </a>
                             </li>
-                            <li>
 
+                            {{-- BTN CREATE PER AGGIUNGERE PIATTI --}}
+                            <li>
+                                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.dishes.create' ? 'bg-secondary' : '' }}"
+                                    href="{{ route('admin.dishes.create') }}">
+                                    <i class="fa-solid fa-diagram-project fa-lg fa-fw"></i> {{ __('Create Dishes') }}
+                                </a>
+                            </li>
+
+                            {{-- BTN SOFT BIN --}}
+                            <li>
                                 <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.dishes.recycle' ? 'bg-secondary' : '' }}"
                                     href="{{ route('admin.dishes.recycle') }}">
                                     <i class="fa-solid fa-trash-arrow-up"></i> {{ __('Soft Bin') }}
