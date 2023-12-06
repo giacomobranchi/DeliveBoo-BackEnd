@@ -24,6 +24,12 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
     Route::resource('dishes', DishController::class)->parameters(['dishes' => 'dish:slug']);
+
+    //amdin/recycle - show trashed dishes
+    Route::get('recycle', [DishController::class, 'recycle'])->name('dishes.recycle');
+
+    //restore trashed dishes
+    Route::get('dishes/restore/{id}', [DishController::class, 'restore'])->name('dishes.restore');
 });
 
 Route::middleware('auth')->group(function () {

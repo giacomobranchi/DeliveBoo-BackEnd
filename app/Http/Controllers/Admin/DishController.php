@@ -124,4 +124,25 @@ class DishController extends Controller
 
         abort(403, 'You cannot delete this dish!');
     }
+
+    public function recycle()
+    {
+        $trashed_dishes = Dish::onlyTrashed()->orderByDesc('id')->get();
+
+        return view('admin.dishes.recycle', compact('trashed_dishes'));
+    }
+
+    public function restore($id)
+    {
+
+        $dish = Dish::onlyTrashed()->find($id);
+        //dd($dish);
+
+        //$dish->restore();
+
+        if ($dish) {
+            $dish->restore();
+            return redirect()->route('admin.dishes.recycle')->with('status', 'Dish restored successfully ♻️');
+        }
+    }
 }
