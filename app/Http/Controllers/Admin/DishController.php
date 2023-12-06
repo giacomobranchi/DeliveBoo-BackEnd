@@ -39,7 +39,7 @@ class DishController extends Controller
     {
         $val_data = $request->validated();
 
-        $val_data['slug'] = Str::slug($request->title, '-');
+        $val_data['slug'] = Str::slug($request->name, '-');
 
         if ($request->has('img')) {
             $path = Storage::put('images', $request->img);
@@ -72,8 +72,7 @@ class DishController extends Controller
     {
 
         if ($dish->user_id === Auth::id()) {
-
-            return view('admin.dishes.edit');
+            return view('admin.dishes.edit', compact('dish'));
         }
 
         abort(404, 'This dish does not exist');
@@ -87,13 +86,16 @@ class DishController extends Controller
         $val_data = $request->validated();
 
         if ($request->has('img')) {
+
             $path = Storage::put('images', $request->img);
             $val_data['img'] = $path;
+
+            if (!is_Null($dish->img) && Storage::fileExists($dish->img)) {
+                Storage::delete($dish->img);
+            }
         }
 
-        if (!Str::is($dish->getOriginal('name'), $request->name)) {
-            $val_data['slug'] = $dish->generateSlug($request->name);
-        }
+        $val_data['slug'] = Str::slug($request->name, '-');
 
         $dish->update($val_data);
 
@@ -101,7 +103,7 @@ class DishController extends Controller
             $dish->user_id()->sync($val_data['user_id']);
         }
 
-        return to_route('admin.dishes.show')->with('message', 'Dish updated successfully');
+        return to_route('admin.dishes.show', $dish)->with('message', 'Dish updated successfully');
     }
 
     /**
