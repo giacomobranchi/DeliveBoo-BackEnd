@@ -127,12 +127,12 @@
                             </li>
 
                             {{-- BTN SOFT BIN --}}
-                            {{-- <li>
+                            <li>
                                 <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.dishes.recycle' ? 'bg-secondary' : '' }}"
                                     href="{{ route('admin.dishes.recycle') }}">
                                     <i class="fa-solid fa-trash-arrow-up"></i> {{ __('Soft Bin') }}
                                 </a>
-                            </li> --}}
+                            </li>
 
 
                         </ul>
