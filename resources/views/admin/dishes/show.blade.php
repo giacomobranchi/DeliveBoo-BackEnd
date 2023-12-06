@@ -2,50 +2,73 @@
 
 @section('content')
     <div class="container-fluid">
-        <h2 class="text-secondary my-4">
-            {{ __('Dish') }}
+        <h2 class="text-dark text-center py-4">
             <strong>
                 {{ $dish->name }}
             </strong>
         </h2>
 
-        <hr>
-        <div class="container">
+        <div class="container pt-5 border-top border-4 border-dark">
 
             <div class="row">
 
-                <div class="col text-center">
-                    <img width="100%" src="{{ asset('storage/' . $dish->img) }}" alt="{{ $dish->name }}">
+                <div class="col">
+                    <img width="100%" class="rounded-4" src="{{ asset('storage/' . $dish->img) }}" alt="{{ $dish->name }}">
                 </div>
 
-                <div class="col">
+                <div class="col fs-3">
                     <p>
-                        Description:
+                        <strong>
+                            Description:
+                        </strong>
                         {{ $dish->description }}
                     </p>
                     <p>
-                        Ingredients:
+                        <strong>
+                            Ingredients:
+                        </strong>
+
                         {{ $dish->ingredients }}
                     </p>
-                    <div class="fs-3">
-                        Price:
-                        {{ $dish->price }}
-                    </div>
-                    <div class="fs-3">
-                        Available:
-                        {{ $dish->available }}
+                    <p>
+                        <strong>
+                            Price:
+                        </strong>
+                        € {{ $dish->price }}
+                    </p>
+                    <div>
+                        <strong>Is Available:</strong>
+                        @if ($dish->available)
+                            <span>
+                                ✅
+                            </span>
+                        @else
+                            <span>
+                                ❌
+                            </span>
+                        @endif
                     </div>
 
-                    <div class="d-flex flex-column gap-2">
-                        {{-- EDIT --}}
-                        <a class="btn btn-warning" href="{{ route('admin.dishes.edit', $dish->slug) }}">
-                            <i class="fa-solid fa-pen-to-square fa-xl"></i>
-                        </a>
-                        {{-- DELETE --}}
-                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                            data-bs-target="#modalId-{{ $dish->id }}">
-                            <i class="fa-solid fa-trash fa-xl"></i>
-                        </button>
+                    <div class="mt-5 gap-2">
+
+                        <div class="row">
+                            <div class="col">
+                                {{-- EDIT --}}
+                                <a class="btn btn-secondary p-3 w-100" href="{{ route('admin.dishes.edit', $dish->slug) }}">
+                                    <i class="fa-solid fa-pen-to-square fa-xl"></i>
+                                </a>
+                            </div>
+
+                            <div class="col">
+                                {{-- DELETE --}}
+                                <button type="button" class="btn btn-danger p-3 w-100" data-bs-toggle="modal"
+                                    data-bs-target="#modalId-{{ $dish->id }}">
+                                    <i class="fa-solid fa-trash fa-xl"></i>
+                                </button>
+                            </div>
+                        </div>
+
+
 
 
                         {{-- MODALE PER ELIMINARE ELEMENTO --}}

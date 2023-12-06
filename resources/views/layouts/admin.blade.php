@@ -23,9 +23,8 @@
     @vite(['resources/js/app.js'])
 </head>
 
-<body>
+<body class="overflow-y-hidden">
     <div id="app">
-
         <header>
             <nav class="navbar navbar-expand-lg navbar-dark text-dark sticky-top flex-md-nowrap p-2 shadow">
 
