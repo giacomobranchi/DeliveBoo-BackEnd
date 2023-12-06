@@ -72,6 +72,7 @@ class DishController extends Controller
     {
 
         if ($dish->user_id === Auth::id()) {
+
             return view('admin.dishes.edit', compact('dish'));
         }
 
