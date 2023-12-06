@@ -2,8 +2,7 @@
 
 @section('content')
     <div class="container">
-        <h1>ADMIN/DISHES/CREATE</h1>
-        <h2 class="fs-4 text-secondary my-4">
+        <h2 class="fs-4 text-dark py-4">
             {{ __('Create Dishes Page for') }} {{ Auth::user()->name }}.
         </h2>
 
@@ -41,9 +40,8 @@
                     <div class="mb-3">
                         <label for="description" class="form-label"><strong>Description</strong></label>
 
-                        <input type="text" class="form-control" name="description" id="description"
-                            aria-describedby="helpDescription" placeholder="New dish description" required
-                            value="{{ old('description') }}">
+                        <textarea type="text" class="form-control" name="description" id="description" aria-describedby="helpDescription"
+                            placeholder="New dish description" required value="{{ old('description') }}" rows="3"></textarea>
 
                         @error('description')
                             <div class="text-danger">{{ $message }}</div>
@@ -63,26 +61,32 @@
                         @enderror
                     </div>
 
-                    {{-- DISH PRICE --}}
+                    {{-- DISH AVAILABLE AND PRICE --}}
                     <div class="mb-3">
-                        <label for="price" class="form-label"><strong>Price</strong></label>
-
-                        <input type="number" class="form-control" name="price" id="price"
-                            aria-describedby="helpPrice" step="0.01" min="0" max="9999.99" required
-                            value="{{ old('price') }}">
-
-                        @error('price')
-                            <div class="text-danger">{{ $message }}</div>
-                        @enderror
-                    </div>
-
-                    {{-- DISH AVAILABLE --}}
-                    <div class="mb-3">
-                        <label for="available" class="form-label">Is Available?</label>
-                        <input type="radio" name="available" value="1" checked>
-                        Available
-                        <input type="radio" name="available" value="0">
-                        Not Available
+                        <div class="row">
+                            <div class="col">
+                                <label for="price" class="form-label"><strong>Price</strong></label>
+                                <input type="number" class="form-control" name="price" id="price"
+                                    aria-describedby="helpPrice" step="0.01" min="0" max="9999.99" required
+                                    value="{{ old('price') }}">
+                                @error('price')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <div class="col">
+                                <label for="available" class="form-label"><strong>Availability</strong></label><br>
+                                <div class="d-flex gap-3">
+                                    <div>
+                                        <input type="radio" id="isAvailable" name="available" value="1" checked>
+                                        <label for="isAvailable">Is Available</label>
+                                    </div>
+                                    <div>
+                                        <input type="radio" id="notAvailable" name="available" value="0">
+                                        <label for="notAvailable">Not Available</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     {{-- DISH IMG --}}
