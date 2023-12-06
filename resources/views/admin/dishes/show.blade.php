@@ -5,22 +5,20 @@
         <h2 class="text-secondary my-4">
             {{ __('Dish') }}
             <strong>
-                {{ $dish->id }}
-            </strong>{
+                {{ $dish->name }}
+            </strong>
         </h2>
 
         <hr>
         <div class="container">
 
             <div class="row">
+
                 <div class="col text-center">
-                    <img src="{{ asset('storage/' . $dish->img) }}" alt="{{ $dish->name }}">
+                    <img width="100%" src="{{ asset('storage/' . $dish->img) }}" alt="{{ $dish->name }}">
                 </div>
 
-
                 <div class="col">
-                    <h1>{{ $dish->name }}</h1>
-
                     <p>
                         Description:
                         {{ $dish->description }}
@@ -38,11 +36,9 @@
                         {{ $dish->available }}
                     </div>
 
-
-
                     <div class="d-flex flex-column gap-2">
                         {{-- EDIT --}}
-                        <a class="w-100 btn btn-warning" href="{{ route('admin.dishes.edit', $dish->slug) }}">
+                        <a class="btn btn-warning" href="{{ route('admin.dishes.edit', $dish->slug) }}">
                             <i class="fa-solid fa-pen-to-square fa-xl"></i>
                         </a>
                         {{-- DELETE --}}
