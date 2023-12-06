@@ -33,7 +33,15 @@
                     </div>
                     <div class="fs-3">
                         Available:
-                        {{ $dish->available }}
+                        @if ($dish->available)
+                            <span>
+                                ✅
+                            </span>
+                        @else
+                            <span>
+                                ❌
+                            </span>
+                        @endif
                     </div>
 
                     <div class="d-flex flex-column gap-2">
