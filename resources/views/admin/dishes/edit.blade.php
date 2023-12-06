@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <h1>ADMIN/DISHES/EDIT</h1>
-        <h2 class="fs-4 text-secondary my-4">
+        <h2 class="fs-4 text-secondary py-4">
             {{ __('Edit Dishes Page for') }} {{ Auth::user()->name }}.
         </h2>
 

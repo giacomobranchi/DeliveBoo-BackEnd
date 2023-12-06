@@ -98,7 +98,7 @@
 
                             {{-- BTN DASHBOARD PER EVENTUALI STATISTICHE --}}
                             <li class="nav-item ">
-                                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.dashboard' ? 'bg-secondary' : '' }}"
+                                <a class="nav-link text-white border border-secondary rounded-3 p-3 fs-4 my-2 d-flex align-items-center {{ Route::currentRouteName() == 'admin.dashboard' ? 'bg-secondary' : '' }}"
                                     href="{{ route('admin.dashboard') }}">
                                     <img class="me-2"
                                         src="{{ asset('assets/utility_image/wired-lineal-1927-food-truck.svg') }}"
@@ -108,7 +108,7 @@
 
                             {{-- BTN INDEX PER VISUALILZZARE I PIATTI --}}
                             <li>
-                                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.dishes.index' ? 'bg-secondary' : '' }}"
+                                <a class="nav-link text-white border border-secondary rounded-3 p-3 fs-4 my-2 d-flex align-items-center {{ Route::currentRouteName() == 'admin.dishes.index' ? 'bg-secondary' : '' }}"
                                     href="{{ route('admin.dishes.index') }}">
                                     <img class="me-2" src="{{ asset('assets/utility_image/pizza-svgrepo-com.svg') }}"
                                         alt="">
@@ -119,9 +119,11 @@
 
                             {{-- BTN CREATE PER AGGIUNGERE PIATTI --}}
                             <li>
-                                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.dishes.create' ? 'bg-secondary' : '' }}"
+                                <a class="nav-link text-white border border-secondary rounded-3 p-3 fs-4 my-2 d-flex align-items-center {{ Route::currentRouteName() == 'admin.dishes.create' ? 'bg-secondary' : '' }}"
                                     href="{{ route('admin.dishes.create') }}">
-                                    <i class="fa-solid fa-utensils fa-lg fa-fw me-2"></i> {{ __('Create Dishes') }}
+                                    <img class="me-2" src="{{ asset('assets/utility_image/fork_and_knife.svg') }}"
+                                        alt="">
+                                    {{ __('Create Dish') }}
                                 </a>
                             </li>
 
@@ -140,8 +142,10 @@
                     </div>
                 </nav>
 
-                <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-                    @yield('content')
+                <main class="col-md-9 ms-sm-auto col-lg-10 p-0">
+                    <div class="style_box">
+                        @yield('content')
+                    </div>
                 </main>
             </div>
         </div>

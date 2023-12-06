@@ -1,6 +1,11 @@
 @import '~bootstrap/scss/bootstrap';
 
 main {
+    height: 100%;
     background-image: url(../../public/assets/utility_image/food-seamless-background-vector-8224389.jpg);
+}
 
+.style_box {
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.85);
 }
