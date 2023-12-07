@@ -60,6 +60,10 @@
                                 </div>
                             </div>
 
+                        </div>
+
+                        
+
                             {{-- partita iva --}}
                             <div class="mb-4 row">
                                 <label for="p_iva"
