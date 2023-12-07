@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
 use Illuminate\Support\Str;
+use App\Models\Type;
 
 class RegisteredUserController extends Controller
 {
@@ -21,7 +22,8 @@ class RegisteredUserController extends Controller
      */
     public function create(): View
     {
-        return view('auth.register');
+        $types = Type::all();
+        return view('auth.register', compact('types'));
     }
 
     /**
@@ -31,14 +33,17 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
+
+
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'p_iva' => ['required', 'string', 'min:16', 'max:16'],
             'address' => ['required', 'string', 'max:255'],
-            'type_id' => ['exist:types,id', 'required']
+            'types' => ['required']
         ]);
+
 
         $user = User::create([
             'name' => $request->name,
@@ -46,11 +51,13 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
             'p_iva' => $request->p_iva,
             'address' => $request->address,
-            'type_id' => $request->type_id,
+            'types' => $request->types,
             'slug' => Str::slug($request->name, '-')
         ]);
 
         event(new Registered($user));
+
+        $user->types()->attach($request->types);
 
         Auth::login($user);
 

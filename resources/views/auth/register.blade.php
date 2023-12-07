@@ -60,9 +60,23 @@
                                 </div>
                             </div>
 
-                        </div>
-
-                        
+                            {{-- Types --}}
+                            <div class="mb-4 row">
+                                <label for="types"
+                                    class="col-md-4 col-form-label text-md-right">{{ __('Types') }}</label>
+                                <div class="col-md-6">
+                                    <select multiple name="types[]" id="types">
+                                        @foreach ($types as $type)
+                                            <option value="{{ $type->id }}">{{ $type->name }}</option>
+                                        @endforeach
+                                    </select>
+                                    @error('types')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
 
                             {{-- partita iva --}}
                             <div class="mb-4 row">
@@ -116,10 +130,16 @@
                                 </div>
                             </div>
 
-                        </form>
                     </div>
+
+
+
+
+
+                    </form>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 @endsection
