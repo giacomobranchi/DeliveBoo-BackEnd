@@ -2,11 +2,11 @@
 
 main {
     background-image: url(../../public/assets/utility_image/food-seamless-background-vector-8224389.jpg);
-    height: calc(100vh - 85px);
+    min-height: calc(100vh - 85px);
 }
 
 #app_main {
-    height: calc(100vh - 68px);
+    min-height: calc(100vh - 68px);
 }
 
 .style_box {
