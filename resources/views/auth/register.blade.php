@@ -64,12 +64,14 @@
                             <div class="mb-4 row">
                                 <label for="types"
                                     class="col-md-4 col-form-label text-md-right">{{ __('Types') }}</label>
-                                <div class="col-md-6">
-                                    <select multiple name="types[]" id="types">
-                                        @foreach ($types as $type)
-                                            <option value="{{ $type->id }}">{{ $type->name }}</option>
-                                        @endforeach
-                                    </select>
+                                <div class="col-md-6 d-flex flex-wrap">
+                                    @foreach ($types as $type)
+                                        <label class="list-group-item w-50">
+                                            <input class="form-check-input" type="checkbox" value="{{ $type->id }}"
+                                                name="types[]">
+                                            {{ $type->name }}
+                                        </label>
+                                    @endforeach
                                     @error('types')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
