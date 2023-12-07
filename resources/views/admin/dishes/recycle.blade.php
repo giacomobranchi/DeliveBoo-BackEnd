@@ -1,12 +1,10 @@
 @extends('layouts.admin')
 
 @section('content')
-    <div class="container-fluid">
-        <h2 class="text-uppercase text-dark my-4">
-            {{ __('Soft Deleted dishes') }} {{-- sintassi x traduzione --}}
+    <div class="container">
+        <h2 class="fs-4 text-dark py-4">
+            {{ __('Bin') }}
         </h2>
-
-        <hr>
 
         @if (session('status'))
             <div class="alert alert-success" role="alert">

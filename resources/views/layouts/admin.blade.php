@@ -23,8 +23,8 @@
     @vite(['resources/js/app.js'])
 </head>
 
-<body class="overflow-y-hidden">
-    <div id="app">
+<body>
+    <div id="app" class="h-100">
         <header>
             <nav class="navbar navbar-expand-lg navbar-dark text-dark sticky-top flex-md-nowrap p-2 shadow">
 
@@ -86,7 +86,7 @@
 
         </header>
 
-        <div class="container-fluid vh-100">
+        <div class="container-fluid h-100">
             <div class="row h-100">
                 <!-- Definire solo parte del menu di navigazione inizialmente per poi
         aggiungere i link necessari giorno per giorno
@@ -128,9 +128,11 @@
 
                             {{-- BTN SOFT BIN --}}
                             <li>
-                                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.dishes.recycle' ? 'bg-secondary' : '' }}"
+                                <a class="nav-link text-white border border-secondary rounded-3 p-3 fs-4 my-2 d-flex align-items-center {{ Route::currentRouteName() == 'admin.dishes.recycle' ? 'bg-secondary' : '' }}"
                                     href="{{ route('admin.dishes.recycle') }}">
-                                    <i class="fa-solid fa-trash-arrow-up"></i> {{ __('Soft Bin') }}
+                                    <img class="me-2" src="{{ asset('assets/utility_image/recycle-bin.svg') }}"
+                                        alt="">
+                                    {{ __('Bin') }}
                                 </a>
                             </li>
 

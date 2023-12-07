@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <h2 class="fs-2 text-dark py-4">
+        <h2 class="fs-4 text-dark py-4">
             Your Dishes
         </h2>
 
