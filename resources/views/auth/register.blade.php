@@ -57,7 +57,7 @@
                             <label for="p_iva" class="col-md-4 col-form-label text-md-right">{{ __('p-IVA') }}</label>
 
                             <div class="col-md-6">
-                                <input id="p_iva" type="p_iva" class="form-control @error('p_iva') is-invalid @enderror" name="p_iva" value="{{ old('p_iva') }}" required autocomplete="p_iva">
+                                <input id="p_iva" type="p_iva" class="form-control @error('p_iva') is-invalid @enderror"  name="p_iva" value="{{ old('p_iva') }}" required autocomplete="p_iva">
 
                                 @error('email')
                                 <span class="invalid-feedback" role="alert">
