@@ -60,26 +60,33 @@
                         @enderror
                     </div>
 
+
                     <div class="mb-3">
                         <div class="row">
+
+                            {{-- price --}}
                             <div class="col">
                                 <label for="price" class="form-label"><strong>Price</strong></label>
                                 <input type="number" class="form-control" name="price" id="price"
                                     aria-describedby="helpPrice" step="0.01" min="0" max="9999.99" required
-                                    value="{{ old('price') }}">
+                                    value="{{ old('price', $dish->price) }}">
                                 @error('price')
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
+
+                            {{-- is available --}}
                             <div class="col">
                                 <label for="available" class="form-label"><strong>Availability</strong></label><br>
                                 <div class="d-flex gap-3">
                                     <div>
-                                        <input type="radio" id="isAvailable" name="available" value="1" checked>
+                                        <input type="radio" id="notAvailable" name="available" value="0"
+                                            {{ $dish->available == old('available') ? 'checked' : '' }}>
                                         <label for="isAvailable">Is Available</label>
                                     </div>
                                     <div>
-                                        <input type="radio" id="notAvailable" name="available" value="0">
+                                        <input type="radio" id="notAvailable" name="available" value="0"
+                                            {{ $dish->available == old('available') ? 'checked' : '' }}>
                                         <label for="notAvailable">Not Available</label>
                                     </div>
                                 </div>
@@ -88,18 +95,32 @@
                     </div>
 
                     {{-- DISH IMG --}}
-                    <div class="mb-3">
-                        <label for="img" class="form-label"><strong>Choose an image file for your
-                                dish</strong></label>
+                    <div class="mt-5 d-flex">
 
-                        <input type="file" class="form-control" name="img" id="img"
-                            placeholder="Upload a new image file..." aria-describedby="fileHelpImg">
+                        <div class="row">
 
-                        @error('img')
-                            <div class="text-danger">{{ $message }}</div>
-                        @enderror
+                            {{-- col with image select --}}
+                            <div id="image_select_wrapper" class="me-5 col-12 col-lg-4">
+                                <label for="img" class="form-label"><strong>Choose an image file for your
+                                        dish</strong></label>
+                                <input type="file" class="form-control" name="img" id="img"
+                                    placeholder="Upload a new image file..." aria-describedby="fileHelpImg">
+                            </div>
+
+                            {{-- col with image preview --}}
+                            <div class="card col-12 col-lg-3 p-2">
+                                <img class="img-fluid rounded-2" src="{{ asset('storage/' . $dish->img) }}"
+                                    alt="{{ $dish->name }}">
+                            </div>
+
+                            @error('img')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
+
+                        </div>
                     </div>
 
+                    {{-- submit button --}}
                     <button type="submit" class="btn btn-success my-3">SAVE</button>
                     <a class="btn btn-primary" href="{{ route('admin.dishes.index') }}">CANCEL</a>
 
