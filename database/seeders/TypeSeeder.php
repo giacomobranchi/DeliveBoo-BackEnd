@@ -14,11 +14,14 @@ class TypeSeeder extends Seeder
      */
     public function run(): void
     {
-        for ($i = 0; $i < 5; $i++) {
-            $type = new Type();
-            $type->name = Str::random(8);
-            $type->slug = Str::slug($type->name, '-');
-            $type->save();
+
+        $types = ['Caffetteria', 'Cinese', 'Giapponese', 'Indiano', 'Internazionale', 'Italiano', 'Messicano', 'Pasticceria', 'Pesce', 'Pizzeria', 'Fast food', 'Vegetariano', 'Vegano', 'Messicano', 'Francese', 'Greco', 'Brasiliano', 'Coreano', 'Tailandese', 'Steakhouse'];
+
+        foreach ($types as $type) {
+            $new_type = new Type();
+            $new_type->name = $type;
+            $new_type->slug = Str::slug($new_type->name, '-');
+            $new_type->save();
         }
     }
 }
