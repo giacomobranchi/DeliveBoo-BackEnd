@@ -86,7 +86,7 @@
             </div>
         </nav>
 
-        <main class="">
+        <main class="min-vh-100">
             @yield('content')
         </main>
     </div>

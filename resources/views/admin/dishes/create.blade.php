@@ -101,8 +101,9 @@
                         @enderror
                     </div>
 
-                    <button type="submit" class="btn btn-success my-3">SAVE</button>
-                    <a class="btn btn-primary" href="{{ route('admin.dishes.index') }}">CANCEL</a>
+                    <button type="submit" class="btn btn-success my-3 px-3">SAVE</button>
+
+                    <a class="btn btn-secondary" href="{{ route('admin.dishes.index') }}">CANCEL</a>
 
                 </form>
             </div>
