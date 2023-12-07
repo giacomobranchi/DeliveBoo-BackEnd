@@ -19,7 +19,7 @@ class TypeController extends Controller
 
     public function show($slug)
     {
-        $type = Type::with('dishes', 'dishes.types')->where('slug', $slug)->first();
+        $type = Type::with('users', 'users.types')->where('slug', $slug)->first();
 
         if ($type) {
             return response()->json([
