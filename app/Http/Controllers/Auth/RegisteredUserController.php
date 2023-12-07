@@ -36,7 +36,8 @@ class RegisteredUserController extends Controller
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'p_iva' => ['required', 'string', 'min:16', 'max:16'],
-            'address' => ['required', 'string', 'max:255']
+            'address' => ['required', 'string', 'max:255'],
+            'type_id' => ['exist:types,id', 'required']
         ]);
 
         $user = User::create([
@@ -45,6 +46,7 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
             'p_iva' => $request->p_iva,
             'address' => $request->address,
+            'type_id' => $request->type_id,
             'slug' => Str::slug($request->name, '-')
         ]);
 
