@@ -39,9 +39,9 @@
                     {{-- DISH DESCRIPTION --}}
                     <div class="mb-3">
                         <label for="description" class="form-label"><strong>Description</strong></label>
-
-                        <textarea type="text" class="form-control" name="description" id="description" aria-describedby="helpDescription"
-                            placeholder="New dish description" required value="{{ old('description') }}" rows="3"></textarea>
+                        <input type="text" class="form-control" name="description" id="description"
+                            aria-describedby="helpDescription" placeholder="New dish description" required
+                            value="{{ old('description') }}">
 
                         @error('description')
                             <div class="text-danger">{{ $message }}</div>
@@ -51,7 +51,6 @@
                     {{-- DISH INGREDIENTS --}}
                     <div class="mb-3">
                         <label for="ingredients" class="form-label"><strong>Ingredients</strong></label>
-
                         <input type="text" class="form-control" name="ingredients" id="ingredients"
                             aria-describedby="helpIngredients" placeholder="Put the ingredients" required
                             value="{{ old('ingredients') }}">
@@ -64,15 +63,19 @@
                     {{-- DISH AVAILABLE AND PRICE --}}
                     <div class="mb-3">
                         <div class="row">
+
+                            {{-- price --}}
                             <div class="col">
                                 <label for="price" class="form-label"><strong>Price</strong></label>
                                 <input type="number" class="form-control" name="price" id="price"
-                                    aria-describedby="helpPrice" step="0.01" min="0" max="9999.99" required
+                                    aria-describedby="helpPrice" step="0.01" min="0.01" max="9999.99" required
                                     value="{{ old('price') }}">
                                 @error('price')
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
+
+                            {{-- available --}}
                             <div class="col">
                                 <label for="available" class="form-label"><strong>Availability</strong></label><br>
                                 <div class="d-flex gap-3">

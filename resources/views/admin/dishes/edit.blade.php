@@ -80,8 +80,8 @@
                                 <label for="available" class="form-label"><strong>Availability</strong></label><br>
                                 <div class="d-flex gap-3">
                                     <div>
-                                        <input type="radio" id="notAvailable" name="available" value="0"
-                                            {{ $dish->available == old('available') ? 'checked' : '' }}>
+                                        <input type="radio" id="isAvailable" name="available" value="1"
+                                            {{ $dish->available != old('available') ? 'checked' : '' }}>
                                         <label for="isAvailable">Is Available</label>
                                     </div>
                                     <div>
