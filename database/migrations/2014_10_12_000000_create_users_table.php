@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string('password');
             $table->char('p_iva', 16);
             $table->string('address');
-            $table->string('type_id');
             $table->string('slug');
             $table->rememberToken();
             $table->timestamps();
