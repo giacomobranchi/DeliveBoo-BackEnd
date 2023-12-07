@@ -19,3 +19,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('/restaurants', [UserController::class, 'index']);
+Route::get('/restaurants/{user:slug}', [UserController::class, 'show']);
