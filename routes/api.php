@@ -2,7 +2,12 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\Api\UserController;
+
+use App\Http\Controllers\Api\TypeController;
+
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -18,5 +23,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+
 Route::get('/restaurants', [UserController::class, 'index']);
 Route::get('/restaurants/{user:slug}', [UserController::class, 'show']);
+
+Route::get('types', [TypeController::class, 'index']);
+Route::get('types/{type:slug}', [TypeController::class, 'show']);
+
