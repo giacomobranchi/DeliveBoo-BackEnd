@@ -22,7 +22,21 @@ class DishSeeder extends Seeder
     public function run(): void
     {
 
-        $ingredients = [
+        $dishes = config('dishes');
+
+        foreach ($dishes as $dish) {
+            $new_dish = new Dish();
+            $new_dish->user_id = '1';
+            $new_dish->name = $dish['name'];
+            $new_dish->img = $dish['img'];
+            $new_dish->description = $dish['description'];
+            $new_dish->price = $dish['price'];
+            $new_dish->available = $dish['available'];
+            $new_dish->slug = Str::slug($new_dish->name, '-');
+            $new_dish->save();
+        }
+
+        /* $ingredients = [
             'Rum',
             'Lime juice',
             'Sugar',
@@ -40,6 +54,6 @@ class DishSeeder extends Seeder
             $dish->img = Str::random(10);
             $dish->slug = Str::slug($dish->name, '-');
             $dish->save();
-        }
+        } */
     }
 }

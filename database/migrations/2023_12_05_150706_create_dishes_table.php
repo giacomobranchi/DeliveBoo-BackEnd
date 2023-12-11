@@ -17,10 +17,10 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('name');
             $table->text('description');
-            $table->text('ingredients');
+            $table->text('ingredients')->nullable();
             $table->decimal('price', 6, 2);
             $table->boolean('available');
-            $table->string('img')->nullable();
+            $table->text('img')->nullable();
             $table->string('slug');
             $table->timestamps();
         });
