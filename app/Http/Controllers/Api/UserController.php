@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -32,5 +33,17 @@ class UserController extends Controller
                 'result' => 'Ops! Page not found'
             ]);
         }
+    }
+
+    public function filterByType(Request $request)
+    {
+
+
+        $types = $request->input('types'); // Assuming 'types' is an array of type values
+        $restaurants = User::whereHas('types', function ($query) use ($types) {
+            $query->whereIn('slug', $types);
+        })->get();
+
+        return response()->json($restaurants);
     }
 }
