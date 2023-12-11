@@ -7,6 +7,7 @@ use Illuminate\Database\Seeder;
 use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
+use App\Models\Type;
 
 class UserSeeder extends Seeder
 {
@@ -15,7 +16,24 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        for ($i = 0; $i < 5; $i++) {
+
+        $users = config('restaurants');
+
+        foreach ($users as $user) {
+            $new_user = new User();
+            /* $types = Type::all()->take(rand(1, 20))->pluck('id');
+            $new_user->types()->attach($types); */
+            $new_user->name = $user['name'];
+            $new_user->email = $user['email'];
+            $new_user->password = Hash::make($user['password']);
+            $new_user->p_iva = $user['p_iva'];
+            $new_user->address = $user['address'];
+            $new_user->slug = Str::slug($user['name'], '-');
+            /* $new_user->types =  $user['types']; */
+            $new_user->save();
+        }
+
+        /* for ($i = 0; $i < 5; $i++) {
             $user = new User();
             $user->name =  Str::random(10);
             $user->email =  Str::random(10) . '@gmail.com';
@@ -24,6 +42,6 @@ class UserSeeder extends Seeder
             $user->address = Str::random(20);
             $user->slug = Str::slug($user->name, '-');
             $user->save();
-        }
+        } */
     }
 }
