@@ -18,8 +18,7 @@
                                     class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
                                 <div class="col-md-6">
                                     <input id="name" type="text"
-                                        class="form-control @error('email') is-invalid @enderror" name="name"
-                                        value="{{ old('name') }}" autocomplete="name" autofocus>
+                                        class="form-control @error('email') is-invalid @enderror" name="name" value="{{ old('name') }}" autocomplete="name" autofocus>
 
                                     @error('name')
                                         <span class="invalid-feedback" role="alert">
@@ -35,8 +34,7 @@
                                     class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
                                 <div class="col-md-6">
                                     <input id="email" type="email"
-                                        class="form-control @error('email') is-invalid @enderror" name="email"
-                                        value="{{ old('email') }}" autocomplete="email">
+                                        class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" autocomplete="email">
                                     @error('email')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -51,8 +49,7 @@
                                     class="col-md-4 col-form-label text-md-right">{{ __('Address') }}</label>
                                 <div class="col-md-6">
                                     <input id="address" type="address"
-                                        class="form-control @error('address') is-invalid @enderror" name="address"
-                                        value="{{ old('address') }}" autocomplete="address">
+                                        class="form-control @error('address') is-invalid @enderror" name="address" value="{{ old('address') }}" autocomplete="address">
                                     @error('address')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -63,13 +60,11 @@
 
                             {{-- Types --}}
                             <div class="mb-4 row">
-                                <label for="types"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Types') }}</label>
+                                <label for="types" class="col-md-4 col-form-label text-md-right">{{ __('Types') }}</label>
                                 <div class="col-md-6 d-flex flex-wrap">
                                     @foreach ($types as $type)
                                         <label class="list-group-item w-50">
-                                            <input class="form-check-input" type="checkbox" value="{{ $type->id }}"
-                                                name="types[]">
+                                            <input id="{{ $type->id }}" class="form-check-input @error('types') is-invalid @enderror" type="checkbox" value="{{ $type->id }}" name="types[]">
                                             {{ $type->name }}
                                         </label>
                                     @endforeach
@@ -87,8 +82,7 @@
                                     class="col-md-4 col-form-label text-md-right">{{ __('P.IVA') }}</label>
                                 <div class="col-md-6">
                                     <input id="p_iva" type="p_iva"
-                                        class="form-control @error('p_iva') is-invalid @enderror" name="p_iva"
-                                        value="{{ old('p_iva') }}" autocomplete="p_iva">
+                                        class="form-control @error('p_iva') is-invalid @enderror" name="p_iva" value="{{ old('p_iva') }}" autocomplete="p_iva">
                                     @error('p_iva')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -119,8 +113,7 @@
                                 <label for="password-confirm"
                                     class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
                                 <div class="col-md-6">
-                                    <input id="password-confirm" type="password" class="form-control"
-                                        name="password_confirmation" autocomplete="new-password">
+                                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" autocomplete="new-password">
                                 </div>
                             </div>
 

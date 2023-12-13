@@ -56,12 +56,22 @@
                                 </button>
 
                                 <ul class="dropdown-menu dropdown-menu-dark">
-                                    <li><a class="dropdown-item" href="{{ url('admin') }}">{{ __('Dashboard') }}</a>
+                                    <li>
+                                        <a class="dropdown-item" href="{{ url('admin') }}">{{ __('Dashboard') }}</a>
                                     </li>
-                                    <li><a class="dropdown-item"
-                                            href="{{ route('admin.dishes.index') }}">{{ __('Dishes') }}</a></li>
-                                    {{-- <li><a class="dropdown-item" href="{{ url('/') }}">{{ __('Home') }}</a>
-                                    </li> --}}
+                                    <li>
+                                        <a class="dropdown-item" href="{{ url('admin') }}">{{ __('User') }}</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="{{ route('admin.dishes.index') }}">{{ __('Dishes') }}</a>
+                                    </li>
+
+                                    {{--
+                                        <li>
+                                            <a class="dropdown-item" href="{{ url('/') }}">{{ __('Home') }}</a>
+                                        </li>
+                                    --}}
+
                                     <li>
                                         <a class="dropdown-item" href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
@@ -102,6 +112,16 @@
                                     <img class="me-2"
                                         src="{{ asset('assets/utility_image/wired-lineal-1927-food-truck.svg') }}"
                                         alt=""> {{ __('Dashboard') }}
+                                </a>
+                            </li>
+
+                            {{-- BTN DASHBOARD PER VISUALILZZARE IL PROFILO UTENTE --}}
+                            <li class="nav-item ">
+                                <a class="nav-link text-white border border-secondary rounded-3 p-3 fs-4 my-2 d-flex align-items-center {{ Route::currentRouteName() == 'admin.user' ? 'bg-secondary' : '' }}"
+                                    href="{{ route('admin.user') }}">
+                                    <img class="me-2"
+                                        src="{{ asset('assets/utility_image/user_profile.svg') }}"
+                                        alt=""> {{ __('User') }}
                                 </a>
                             </li>
 
