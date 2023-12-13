@@ -22,6 +22,9 @@ Route::get('/', function () {
 
 Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+    
+    //User - da completare!
+    Route::get('user', [DashboardController::class, 'index'])->name('user');
 
     Route::resource('dishes', DishController::class)->parameters(['dishes' => 'dish:slug']);
 
