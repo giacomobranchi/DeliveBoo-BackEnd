@@ -39,10 +39,15 @@ class UserController extends Controller
     {
 
 
-        $types = $request->input('types'); // Assuming 'types' is an array of type values
+        /*  $types = $request->input('types'); // Assuming 'types' is an array of type values
         $restaurants = User::whereHas('types', function ($query) use ($types) {
             $query->whereIn('slug', $types);
-        })->get();
+        })->get()->load('types'); */
+
+        $types = $request->input('types');
+        $restaurants = User::whereHas('types', function ($query) use ($types) {
+            $query->whereIn('slug', $types);
+        }, '>=', count($types))->get()->load('types');
 
         return response()->json($restaurants);
     }
