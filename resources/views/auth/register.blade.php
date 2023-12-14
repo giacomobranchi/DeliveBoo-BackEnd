@@ -61,18 +61,21 @@
                             {{-- Types --}}
                             <div class="mb-4 row">
                                 <label for="types" class="col-md-4 col-form-label text-md-right">{{ __('Types') }}</label>
-                                <div class="col-md-6 d-flex flex-wrap">
-                                    @foreach ($types as $type)
-                                        <label class="list-group-item w-50">
+                                <div class="col-md-6">    
+                                    <div class="list-group-item w-50">
+                                        @foreach ($types as $type)
+                            
                                             <input id="{{ $type->id }}" class="form-check-input @error('types') is-invalid @enderror" type="checkbox" value="{{ $type->id }}" name="types[]">
-                                            {{ $type->name }}
-                                        </label>
-                                    @endforeach
-                                    @error('types')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
+                                            <span>{{ $type->name }}</span>
+                                            
+                                        @endforeach
+
+                                        @error('types')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>                                    
                                 </div>
                             </div>
 
