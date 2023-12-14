@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\PaymentController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -30,3 +31,5 @@ Route::get('/restaurants/user/{user:slug}', [UserController::class, 'show']);
 
 Route::get('types', [TypeController::class, 'index']);
 Route::get('types/{type:slug}', [TypeController::class, 'show']);
+
+Route::post('/payment', [PaymentController::class, 'processPayment']);
