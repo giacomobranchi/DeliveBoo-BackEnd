@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\StoreDishRequest;
+use App\Http\Requests\UpdateDishRequest;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
@@ -12,7 +14,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        //
+        return view('admin.user');
     }
 
     public function create()

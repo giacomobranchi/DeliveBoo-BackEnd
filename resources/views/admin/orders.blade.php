@@ -4,8 +4,8 @@
 
 <div class="container">
 
-    <h1>Welcome in User</h1>
-
+    <h1>Welcome in Orders</h1>
+    
 </div>
 
 @endsection
