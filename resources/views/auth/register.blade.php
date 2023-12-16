@@ -62,12 +62,11 @@
                             <div class="mb-4 row">
                                 <label for="types" class="col-md-4 col-form-label text-md-right">{{ __('Types') }}</label>
                                 <div class="col-md-6">    
-                                    <div class="list-group-item w-50">
+                                    <div class="list-group-item">
                                         @foreach ($types as $type)
-                            
                                             <input id="{{ $type->id }}" class="form-check-input @error('types') is-invalid @enderror" type="checkbox" value="{{ $type->id }}" name="types[]">
                                             <span>{{ $type->name }}</span>
-                                            
+                                            <br>
                                         @endforeach
 
                                         @error('types')
@@ -75,7 +74,7 @@
                                                 <strong>{{ $message }}</strong>
                                             </span>
                                         @enderror
-                                    </div>                                    
+                                    </div>
                                 </div>
                             </div>
 
@@ -133,6 +132,5 @@
                 </div>
             </div>
         </div>
-    </div>
     </div>
 @endsection

@@ -4,6 +4,8 @@ use App\Http\Controllers\Admin\DishController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\OrderController;
+use App\Http\Controllers\Admin\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,10 +25,11 @@ Route::get('/', function () {
 Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     
-    //User - da completare!
-    Route::get('user', [DashboardController::class, 'index'])->name('user');
+    Route::get('user', [UserController::class, 'index'])->name('user');
 
     Route::resource('dishes', DishController::class)->parameters(['dishes' => 'dish:slug']);
+
+    Route::get('orders', [OrderController::class, 'index'])->name('orders');
 
     //amdin/recycle - show trashed dishes
     Route::get('recycle', [DishController::class, 'recycle'])->name('dishes.recycle');

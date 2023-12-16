@@ -60,10 +60,13 @@
                                         <a class="dropdown-item" href="{{ url('admin') }}">{{ __('Dashboard') }}</a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="{{ url('admin') }}">{{ __('User') }}</a>
+                                        <a class="dropdown-item" href="{{ route('admin.user') }}">{{ __('User') }}</a>
                                     </li>
                                     <li>
                                         <a class="dropdown-item" href="{{ route('admin.dishes.index') }}">{{ __('Dishes') }}</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="{{ route('admin.orders') }}">{{ __('Orders') }}</a>
                                     </li>
 
                                     {{--
@@ -133,6 +136,17 @@
                                         alt="">
 
                                     {{ __('Dishes') }}
+                                </a>
+                            </li>
+
+                            {{-- BTN INDEX PER VISUALILZZARE GLI ORDINI --}}
+                            <li>
+                                <a class="nav-link text-white border border-secondary rounded-3 p-3 fs-4 my-2 d-flex align-items-center {{ Route::currentRouteName() == 'admin.oders' ? 'bg-secondary' : '' }}"
+                                    href="{{ route('admin.orders') }}">
+                                    <img class="me-2" src="{{ asset('assets/utility_image/orders_tray.svg') }}"
+                                        alt="">
+
+                                    {{ __('Orders') }}
                                 </a>
                             </li>
 
