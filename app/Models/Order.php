@@ -20,7 +20,8 @@ class Order extends Model
         'ui_mail',
         'ui_address',
         'ui_name',
-        'ui_phone'
+        'ui_phone',
+        'user_id'
     ];
 
 

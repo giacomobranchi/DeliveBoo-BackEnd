@@ -30,5 +30,11 @@ return [
         'secret' => env('AWS_SECRET_ACCESS_KEY'),
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
+    'braintree' => [
+        'environment' => env('BRAINTREE_ENVIRONMENT', 'sandbox'),
+        'merchant_id' => env('BRAINTREE_MERCHANT_ID', 'qn37m4g29crgwwqb'),
+        'public_key' => env('BRAINTREE_PUBLIC_KEY', 'jxc2469xnjhgcn5w'),
+        'private_key' => env('BRAINTREE_PRIVATE_KEY', 'e875a3a46f322a071e49226c928378b0'),
+    ]
 
 ];
