@@ -1,12 +1,16 @@
 modify .env with 
 ```
 BRAINTREE_ENVIRONMENT=sandbox
-   BRAINTREE_MERCHANT_ID=qn37m4g29crgwwqb
-   BRAINTREE_PUBLIC_KEY=jxc2469xnjhgcn5w
-   BRAINTREE_PRIVATE_KEY=e875a3a46f322a071e49226c928378b0
+BRAINTREE_MERCHANT_ID=qn37m4g29crgwwqb
+BRAINTREE_PUBLIC_KEY=jxc2469xnjhgcn5w
+BRAINTREE_PRIVATE_KEY=e875a3a46f322a071e49226c928378b0
 ```
 
-add to services 
+```terminal
+php artisan migrate
+```
+
+<!-- add to services 
 ```
 'braintree' => [
         'environment' => env('BRAINTREE_ENVIRONMENT', 'sandbox'),
@@ -29,4 +33,4 @@ add to services
             ]);
         });
     }
-```
+``` -->

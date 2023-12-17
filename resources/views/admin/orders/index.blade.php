@@ -2,8 +2,9 @@
 
 @section('content')
     <div class="container">
-
-        <h1>Welcome in Orders</h1>
+        <h2 class="fs-4 text-dark py-4">
+            Your Orders
+        </h2>
 
         @forelse($ordersData as $data)
             <div>
@@ -16,7 +17,7 @@
                 {{ $data->name }}
             </div>
         @empty
-            ciao
+            No more orders
         @endforelse
 
 
