@@ -32,26 +32,18 @@ class OrderController extends Controller
             'ui_mail' => $request->ui_mail,
             'total_price' => $request->total_price,
             'user_id' => $request->user_id,
-            'success' => true
+            'success' => $request->success
         ]);
 
 
 
-        /* foreach ($request->cart as $item) {
-            $order->dishes()->attach($item['id'], ['quantity' => $item['qty']]);
-        } */
+        foreach ($request->dishes as $item) {
+            $order->dishes()->attach($item['id'], ['qty' => $item['quantity']]);
+        }
 
 
         return response()->json(['message' => 'Ordine ricevuto con successo', 'order_id' => $order->id], 201);
     }
-
-
-
-
-
-
-
-
 
     public function Generate(Request $request, Gateway $gateway, Order $order)
     {
