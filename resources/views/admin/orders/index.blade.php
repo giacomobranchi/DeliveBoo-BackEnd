@@ -12,40 +12,38 @@
                     <tr>
                         <th>Order ID</th>
                         <th>Order Price</th>
-                        <th>Info UI</th>
-                        <th>Dish ID</th>
-                        <th>Quantity</th>
+                        <th>UI name</th>
+                        <th>UI mail</th>
+                        <th>UI address</th>
+                        <th>UI phone</th>
                     </tr>
                 </thead>
                 <tbody>
 
-                    @forelse($ordersData as $data)
+                    @forelse($orders as $order)
                         <tr>
                             <td>
-                                {{ $data->order_id }}
+                                {{ $order->id }}
                             </td>
                             <td>
-                                {{ $data->total_price }}
+                                {{ $order->total_price }}
                             </td>
                             <td>
-                                <div>
-                                    {{ $data->ui_name }}
-                                </div>
-                                <div>
-                                    {{ $data->ui_address }}
-                                </div>
-                                <div>
-                                    {{ $data->ui_mail }}
-                                </div>
-                                <div>
-                                    {{ $data->ui_phone }}
-                                </div>
+                                {{ $order->ui_name }}
                             </td>
                             <td>
-                                {{ $data->dish_id }}
+                                {{ $order->ui_mail }}
                             </td>
                             <td>
-                                {{ $data->qty }}
+                                {{ $order->ui_address }}
+                            </td>
+                            <td>
+                                {{ $order->ui_phone }}
+                            </td>
+                            <td>
+                                <a href="{{ route('admin.orders.show', $order->id) }}" class="btn btn-primary">
+                                    <i class="fa-solid fa-eye"></i>
+                                </a>
                             </td>
                         </tr>
                     @empty

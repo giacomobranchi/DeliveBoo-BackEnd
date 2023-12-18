@@ -16,6 +16,14 @@ class OrderController extends Controller
 {
     public function index()
     {
+        $orders = Order::orderBy('created_at', 'desc')->get();
+
+        return view('admin.orders.index', compact('orders'));
+    }
+
+    public function show(Order $order)
+    {
+
         $ordersData = DB::table('dish_order')
             ->select(
                 //pivot
@@ -41,6 +49,6 @@ class OrderController extends Controller
             ->leftJoin('orders', 'dish_order.order_id', '=', 'orders.id')
             ->get();
 
-        return view('admin.orders.index', compact('ordersData'));
+        return view('admin.orders.show', compact('ordersData'));
     }
 }
