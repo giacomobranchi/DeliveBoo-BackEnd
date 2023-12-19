@@ -21,10 +21,15 @@ class OrderController extends Controller
         return view('admin.orders.index', compact('orders'));
     }
 
-    public function show(Order $order)
+    public function show(Order $order, $id)
     {
+        //dd($order);
+        $order = Order::where('user_id', Auth::id())->where('id', $id)
+            ->with('dishes')
+            ->get();
+        /* $order = Order::where('user_id', Auth::id())->leftJoin('dish_order', 'dish_order.order_id', '=', 'orders.id')->get(); */
 
-        $ordersData = DB::table('dish_order')
+        /* $ordersData = DB::table('dish_order')
             ->select(
                 //pivot
                 'dish_order.dish_id',
@@ -46,9 +51,10 @@ class OrderController extends Controller
                 'orders.ui_phone'
             )
             ->leftJoin('dishes', 'dish_order.dish_id', '=', 'dishes.id')
-            ->leftJoin('orders', 'dish_order.order_id', '=', 'orders.id')
-            ->get();
+            ->leftJoin('orders', 'dish_order.order_id', '=', 'orders.id')->where('user_id', Auth::id())
+            ->get(); */
+        //dd($order);
 
-        return view('admin.orders.show', compact('ordersData'));
+        return view('admin.orders.show', compact('order'));
     }
 }

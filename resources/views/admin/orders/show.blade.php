@@ -23,10 +23,10 @@
                 </thead>
                 <tbody>
 
-                    @foreach ($ordersData as $data)
+                    @foreach ($order as $data)
                         <tr>
                             <td>
-                                {{ $data->order_id }}
+                                {{ $data }}
                             </td>
                             <td>
                                 {{ $data->dish_id }}
