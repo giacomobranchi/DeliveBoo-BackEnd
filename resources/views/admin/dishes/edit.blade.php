@@ -109,8 +109,9 @@
 
                             {{-- col with image preview --}}
                             <div class="card col-12 col-lg-3 p-2">
-                                <img class="img-fluid rounded-2" src="{{ asset('storage/' . $dish->img) }}"
-                                    alt="{{ $dish->name }}">
+                                {{-- <img class="img-fluid rounded-2" src="{{ asset('storage/' . $dish->img) }}"
+                                    alt="{{ $dish->name }}"> --}}
+                                <img class="img-fluid rounded-2" src="{{ $dish->img }}" alt="{{ $dish->name }}">
                             </div>
 
                             @error('img')

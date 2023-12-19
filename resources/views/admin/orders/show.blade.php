@@ -29,14 +29,11 @@
                                 {{ $data }}
                             </td>
                             <td>
-                                <ul>
-                                    {{ $data->dishes }}
-                                    {{--  @foreach ($data->dishes as $dish)
-                                        <li>
-                                            {{ $dish->pivot }}
-                                        </li>
-                                    @endforeach --}}
-                                </ul>
+                                @foreach ($data->dishes as $pivot)
+                                    <li>
+                                        {{ $pivot->pivot->qty }}
+                                    </li>
+                                @endforeach
                             </td>
                             <td>
                             </td>

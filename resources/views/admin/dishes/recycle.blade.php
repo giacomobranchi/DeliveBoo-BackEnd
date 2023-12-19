@@ -20,7 +20,6 @@
                         <th scope="col">Preview</th>
                         <th scope="col">Name</th>
                         <th scope="col">Deleted at</th>
-                        <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody>

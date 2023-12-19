@@ -10,12 +10,9 @@
             <table class="table border table-striped table-hover table-light">
                 <thead>
                     <tr>
-                        <th>Order ID</th>
-                        <th>Order Price</th>
-                        <th>UI name</th>
-                        <th>UI mail</th>
-                        <th>UI address</th>
-                        <th>UI phone</th>
+                        <th>Prezzo Ordine</th>
+                        <th>Data di Ordinazione</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -23,22 +20,10 @@
                     @forelse($orders as $order)
                         <tr>
                             <td>
-                                {{ $order->id }}
+                                {{ $order->total_price }} €
                             </td>
                             <td>
-                                {{ $order->total_price }}
-                            </td>
-                            <td>
-                                {{ $order->ui_name }}
-                            </td>
-                            <td>
-                                {{ $order->ui_mail }}
-                            </td>
-                            <td>
-                                {{ $order->ui_address }}
-                            </td>
-                            <td>
-                                {{ $order->ui_phone }}
+                                {{ $order->created_at }}
                             </td>
                             <td>
                                 <a href="{{ route('admin.orders.show', $order->id) }}" class="btn btn-primary">

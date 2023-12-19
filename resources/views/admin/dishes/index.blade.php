@@ -22,7 +22,8 @@
                     @forelse ($dishes as $dish)
                         <tr>
                             <td>
-                                <img width="150px" src="{{ asset('storage/' . $dish->img) }}" alt="{{ $dish->name }}">
+                                {{-- <img width="150px" src="{{ asset('storage/' . $dish->img) }}" alt="{{ $dish->name }}"> --}}
+                                <img width="150px" src="{{ $dish->img }}" alt="{{ $dish->name }}">
                             </td>
                             <td>
                                 {{ $dish->name }}
@@ -42,19 +43,23 @@
                                 {{ $dish->created_at }}
                             </td>
                             <td>
-                                <a href="{{ route('admin.dishes.show', $dish->slug) }}" class="btn btn-primary">
-                                    <i class="fa-solid fa-eye"></i>
-                                </a>
-                                <a href="{{ route('admin.dishes.edit', $dish->slug) }}" class="btn btn-secondary">
-                                    <i class="fa-regular fa-pen-to-square"></i>
-                                </a>
+                                <div style="height: 100%"
+                                    class="d-flex flex-column align-items-center  gap-2  justify-content-center">
+
+                                    <a href="{{ route('admin.dishes.show', $dish->slug) }}" class="btn btn-primary">
+                                        <i class="fa-solid fa-eye"></i>
+                                    </a>
+                                    <a href="{{ route('admin.dishes.edit', $dish->slug) }}" class="btn btn-secondary">
+                                        <i class="fa-regular fa-pen-to-square"></i>
+                                    </a>
 
 
-                                <!-- Modal trigger button -->
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalId-{{ $dish->slug }}">
-                                    <i class="fa-solid fa-trash"></i>
-                                </button>
+                                    <!-- Modal trigger button -->
+                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                        data-bs-target="#modalId-{{ $dish->slug }}">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </button>
+                                </div>
 
                                 <!-- Modal Body -->
                                 <!-- if you want to close by clicking outside the modal, delete the last endpoint:data-bs-backdrop and data-bs-keyboard -->

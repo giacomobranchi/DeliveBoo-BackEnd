@@ -25,7 +25,7 @@ class OrderController extends Controller
     {
         //dd($order);
         $order = Order::where('user_id', Auth::id())->where('id', $id)
-            /* ->with('dishes') */
+            ->with('dishes')
             ->get();
         /* $order = Order::where('user_id', Auth::id())->leftJoin('dish_order', 'dish_order.order_id', '=', 'orders.id')->get(); */
 
