@@ -29,10 +29,13 @@
                                 {{ $data }}
                             </td>
                             <td>
-                                {{ $data->dish_id }}
+                                @foreach ($data->dishes as $pivot)
+                                    <li>
+                                        {{ $pivot->pivot->qty }}
+                                    </li>
+                                @endforeach
                             </td>
                             <td>
-                                {{ $data->qty }}
                             </td>
                             <td>
                                 {{ $data->name }}

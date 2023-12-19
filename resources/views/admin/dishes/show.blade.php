@@ -10,13 +10,14 @@
 
         <div class="container pt-5 border-top border-4 border-dark">
 
-            <div class="row">
+            <div class="row pb-5">
 
-                <div class="col">
-                    <img width="100%" class="rounded-4" src="{{ asset('storage/' . $dish->img) }}" alt="{{ $dish->name }}">
+                <div class="col-12 col-md-6">
+                    {{-- <img width="100%" class="rounded-4" src="{{ asset('storage/' . $dish->img) }}" alt="{{ $dish->name }}"> --}}
+                    <img width="100%" class="rounded-4" src="{{ $dish->img }}" alt="{{ $dish->name }}">
                 </div>
 
-                <div class="col fs-3">
+                <div class="col-12 col-md-6 pt-4 fs-3">
                     <p>
                         <strong>
                             Description:

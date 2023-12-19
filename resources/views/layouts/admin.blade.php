@@ -36,14 +36,14 @@
                     </div>
 
 
-                    <button class="navbar-toggler position-absolute d-md-none collapsed" type="button"
-                        data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu"
-                        aria-expanded="false" aria-label="Toggle navigation">
+                    <button class="navbar-toggler position-absolute top-10 bg-dark end-0 me-1  d-md-none collapsed"
+                        type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu"
+                        aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
 
-                    <input class="form-control form-control-dark w-50" type="text" placeholder="Search"
-                        aria-label="Search">
+                    {{-- <input class="form-control form-control-dark w-50" type="text" placeholder="Search"
+                        aria-label="Search"> --}}
 
                     <div class="collapse navbar-collapse justify-content-end flex-grow-0" id="navbarNavDarkDropdown">
 
@@ -115,9 +115,9 @@
                             <li class="nav-item ">
                                 <a class="nav-link text-white border border-secondary rounded-3 p-3 fs-4 my-2 d-flex align-items-center {{ Route::currentRouteName() == 'admin.dashboard' ? 'bg-secondary' : '' }}"
                                     href="{{ route('admin.dashboard') }}">
-                                    <img class="me-2"
-                                        src="{{ asset('assets/utility_image/wired-lineal-1927-food-truck.svg') }}"
-                                        alt=""> {{ __('Dashboard') }}
+                                    <img style="height: 40px" class="me-2"
+                                        src="{{ asset('assets/utility_image/logo.PNG') }}" alt="">
+                                    {{ __('Dashboard') }}
                                 </a>
                             </li>
 
