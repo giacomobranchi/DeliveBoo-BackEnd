@@ -21,7 +21,9 @@ class Order extends Model
         'ui_address',
         'ui_name',
         'ui_phone',
-        'user_id'
+        'user_id',
+        'dish_id',
+        'qty'
     ];
 
 
