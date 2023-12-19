@@ -11,7 +11,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        $users = User::with('dish', 'types')->get();
+        $users = User::with('dish', 'types')->inRandomOrder()->get();
         return response()->json([
             'success' => true,
             'result' => $users

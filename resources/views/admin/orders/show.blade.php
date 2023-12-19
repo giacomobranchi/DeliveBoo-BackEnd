@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
-@section('content')
-    @extends('layouts.admin')
+
+
 
 @section('content')
     <div class="container">
@@ -53,6 +53,4 @@
         </div>
 
     </div>
-@endsection
-
 @endsection
