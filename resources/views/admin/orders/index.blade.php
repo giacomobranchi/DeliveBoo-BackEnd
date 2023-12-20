@@ -12,7 +12,8 @@
                     <tr>
                         <th>Prezzo Ordine</th>
                         <th>Data di Ordinazione</th>
-                        <th></th>
+                        <th>Nome Cliente</th>
+                        <th>Contatto</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -26,10 +27,16 @@
                                 {{ $order->created_at }}
                             </td>
                             <td>
+                                {{ $order->ui_name }}
+                            </td>
+                            <td>
+                                {{ $order->ui_phone }}
+                            </td>
+                            {{--  <td>
                                 <a href="{{ route('admin.orders.show', $order->id) }}" class="btn btn-primary">
                                     <i class="fa-solid fa-eye"></i>
                                 </a>
-                            </td>
+                            </td> --}}
                         </tr>
                     @empty
                         <h3 class="py-3">
