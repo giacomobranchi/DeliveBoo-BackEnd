@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreDishRequest;
 use App\Http\Requests\UpdateDishRequest;
+use App\Models\User;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
@@ -14,7 +15,8 @@ class UserController extends Controller
 {
     public function index()
     {
-        return view('admin.user');
+        $user = User::where('id', Auth::id())->get();
+        return view('admin.user', compact('user'));
     }
 
     public function create()
