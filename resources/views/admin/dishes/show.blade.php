@@ -14,7 +14,11 @@
 
                 <div class="col-12 col-md-6">
                     {{-- <img width="100%" class="rounded-4" src="{{ asset('storage/' . $dish->img) }}" alt="{{ $dish->name }}"> --}}
-                    <img width="100%" class="rounded-4" src="{{ $dish->img }}" alt="{{ $dish->name }}">
+                    @if (str_contains($dish->img, 'http'))
+                        <img width="100%" src="{{ $dish->img }}" alt="{{ $dish->name }}">
+                    @else
+                        <img width="100%" src="{{ asset('storage/' . $dish->img) }}" alt="{{ $dish->name }}">
+                    @endif
                 </div>
 
                 <div class="col-12 col-md-6 pt-4 fs-3">

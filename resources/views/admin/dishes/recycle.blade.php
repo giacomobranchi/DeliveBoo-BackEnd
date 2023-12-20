@@ -20,6 +20,7 @@
                         <th scope="col">Preview</th>
                         <th scope="col">Name</th>
                         <th scope="col">Deleted at</th>
+                        <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -29,11 +30,11 @@
                             {{-- IMG --}}
                             <td class="text-center align-middle">
 
-                                @if ($dish->img)
+                                @if (str_contains($dish->img, 'http'))
+                                    <img width="150px" src="{{ $dish->img }}" alt="{{ $dish->name }}">
+                                @else
                                     <img width="100" src="{{ asset('storage/' . $dish->img) }}"
                                         alt="{{ $dish->name }}">
-                                @else
-                                    <i class="fa-solid fa-image fa-2xl"></i>
                                 @endif
                             </td>
 

@@ -22,8 +22,12 @@
                     @forelse ($dishes as $dish)
                         <tr>
                             <td>
-                                {{-- <img width="150px" src="{{ asset('storage/' . $dish->img) }}" alt="{{ $dish->name }}"> --}}
-                                <img width="150px" src="{{ $dish->img }}" alt="{{ $dish->name }}">
+                                @if (str_contains($dish->img, 'http'))
+                                    <img height="150px" width="150px" src="{{ $dish->img }}" alt="{{ $dish->name }}">
+                                @else
+                                    <img height="150px" width="150px" src="{{ asset('storage/' . $dish->img) }}"
+                                        alt="{{ $dish->name }}">
+                                @endif
                             </td>
                             <td>
                                 {{ $dish->name }}
