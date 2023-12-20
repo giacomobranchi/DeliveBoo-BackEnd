@@ -20,6 +20,7 @@ return new class extends Migration
             $table->char('p_iva', 16);
             $table->string('address');
             $table->string('slug');
+            $table->text('img')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

@@ -28,6 +28,10 @@ class UserSeeder extends Seeder
             $new_user->password = Hash::make($user['password']);
             $new_user->p_iva = $user['p_iva'];
             $new_user->address = $user['address'];
+
+            //$new_user->img = file_get_contents($user->img);
+            $new_user->img = $user['img'];
+
             $new_user->slug = Str::slug($user['name'], '-');
             /* $new_user->types =  $user['types']; */
             $new_user->save();

@@ -41,7 +41,8 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'p_iva' => ['required', 'string', 'min:11', 'max:11'],
             'address' => ['required', 'string', 'max:255'],
-            'types' => ['required']
+            'types' => ['required'],
+            'img' => ['string']
         ]);
 
 
@@ -52,6 +53,7 @@ class RegisteredUserController extends Controller
             'p_iva' => $request->p_iva,
             'address' => $request->address,
             'types' => $request->types,
+            'img' => $request->img,
             'slug' => Str::slug($request->name, '-')
         ]);
 
