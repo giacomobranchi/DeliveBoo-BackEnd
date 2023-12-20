@@ -26,7 +26,8 @@ class User extends Authenticatable
         'password',
         'p_iva',
         'address',
-        'slug'
+        'slug',
+        'img'
     ];
 
     /**
