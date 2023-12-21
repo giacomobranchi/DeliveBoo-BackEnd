@@ -67,7 +67,7 @@
                             <div class="col">
                                 {{-- DELETE --}}
                                 <button type="button" class="btn btn-danger p-3 w-100" data-bs-toggle="modal"
-                                    data-bs-target="#modalId-{{ $dish->id }}">
+                                    data-bs-target="#modalId-{{ $dish->slug }}">
                                     <i class="fa-solid fa-trash fa-xl"></i>
                                 </button>
                             </div>
@@ -76,30 +76,31 @@
 
 
 
-                        {{-- MODALE PER ELIMINARE ELEMENTO --}}
-                        <div class="modal fade" id="modalId-{{ $dish->id }}" data-backdrop="static"
-                            data-keyboard="false" tabindex="-1" aria-labelledby="modalId-{{ $dish->id }}"
-                            aria-hidden="true">
-                            <div class="modal-dialog">
+                        <!-- Modal Body -->
+                        <!-- if you want to close by clicking outside the modal, delete the last endpoint:data-bs-backdrop and data-bs-keyboard -->
+                        <div class="modal fade" id="modalId-{{ $dish->slug }}" tabindex="-1" role="dialog"
+                            aria-labelledby="modalTitle-{{ $dish->slug }}" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm"
+                                role="document">
                                 <div class="modal-content">
-                                    <div class="modal-header bg-danger text-white justify-content-center">
-                                        <h5 class="modal-title text-uppercase" id="modalTitleId-{{ $dish->id }}">
-                                            Attenzione!</h5>
+                                    <div class="modal-header">
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
                                     </div>
-                                    <div class="modal-body fs-5">
-                                        Il progetto <strong>{{ $dish->id }}</strong> -
-                                        <strong>{{ $dish->title }}</strong> sta per essere eliminato!
+                                    <div class="modal-body">
+                                        Attention! You cannot go back from this
                                     </div>
-                                    <div class="modal-footer justify-content-between">
-                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal">
-                                            <i class="fa-solid fa-angle-left"></i> Back
-                                        </button>
-                                        {{-- non confondere destroy con delete --}}
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Close</button>
+
+                                        <!-- Delete form -->
                                         <form action="{{ route('admin.dishes.destroy', $dish->slug) }}" method="POST">
                                             @csrf
-                                            @method('delete')
-                                            <button type="submit" class="btn btn-danger">Delete <i
-                                                    class="fa-solid fa-trash"></i></button>
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger">
+                                                <i class="fa-solid fa-trash"></i>
+                                            </button>
                                         </form>
                                     </div>
                                 </div>
