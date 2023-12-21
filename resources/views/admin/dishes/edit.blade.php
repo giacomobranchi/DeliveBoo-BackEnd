@@ -100,18 +100,11 @@
                         <div class="row">
 
                             {{-- col with image select --}}
-                            <div id="image_select_wrapper" class="me-5 col-12 col-lg-4">
+                            <div id="image_select_wrapper" class="me-5 col-12 col-lg-12">
                                 <label for="img" class="form-label"><strong>Choose an image file for your
                                         dish</strong></label>
                                 <input type="file" class="form-control" name="img" id="img"
                                     placeholder="Upload a new image file..." aria-describedby="fileHelpImg">
-                            </div>
-
-                            {{-- col with image preview --}}
-                            <div class="card col-12 col-lg-3 p-2">
-                                {{-- <img class="img-fluid rounded-2" src="{{ asset('storage/' . $dish->img) }}"
-                                    alt="{{ $dish->name }}"> --}}
-                                <img class="img-fluid rounded-2" src="{{ $dish->img }}" alt="{{ $dish->name }}">
                             </div>
 
                             @error('img')

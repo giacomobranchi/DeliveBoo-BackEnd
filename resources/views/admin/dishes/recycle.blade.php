@@ -33,9 +33,9 @@
                                 @if (str_contains($dish->img, 'http'))
                                     <img width="150px" src="{{ $dish->img }}" alt="{{ $dish->name }}">
                                 @else
-                                    <img width="100" src="{{ asset('storage/' . $dish->img) }}"
-                                        alt="{{ $dish->name }}">
+                                    <i class="fa-solid fa-image fa-xl"></i>
                                 @endif
+
                             </td>
 
                             {{-- TITLE --}}

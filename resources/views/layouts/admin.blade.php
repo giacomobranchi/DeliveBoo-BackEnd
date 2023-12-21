@@ -163,14 +163,14 @@
                             </li>
 
                             {{-- BTN SOFT BIN --}}
-                            <li>
+                            {{-- <li>
                                 <a class="nav-link text-white border border-secondary rounded-3 p-3 fs-4 my-2 d-flex align-items-center {{ Route::currentRouteName() == 'admin.dishes.recycle' ? 'bg-secondary' : '' }}"
                                     href="{{ route('admin.dishes.recycle') }}">
                                     <img class="me-2" src="{{ asset('assets/utility_image/recycle-bin.svg') }}"
                                         alt="">
                                     {{ __('Bin') }}
                                 </a>
-                            </li>
+                            </li> --}}
 
 
                         </ul>
